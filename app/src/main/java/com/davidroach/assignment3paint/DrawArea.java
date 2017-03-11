@@ -37,20 +37,17 @@ public class DrawArea extends View {
     public DrawArea(Context context){
         super(context);
         setup(null);
-
     }
 
 
     public DrawArea(Context context, AttributeSet attrs){
         super(context, attrs);
         setup(attrs);
-
     }
 
     public DrawArea(Context context, AttributeSet attrs, int defStyleAttr){
         super(context, attrs, defStyleAttr);
         setup(attrs);
-
     }
 
     @Override
@@ -63,7 +60,7 @@ public class DrawArea extends View {
 
 
     //sets color variable to be used in brushes and fonts.
-    private void setCurrentColor(int colorIn){
+    public void setCurrentColor(int colorIn){
         currentColor = colorIn;
         //paintBrush.setColor(colorIn);
 
@@ -74,9 +71,7 @@ public class DrawArea extends View {
     public void setup(AttributeSet attrs){
         setCurrentColor(Color.BLACK);
 
-        //
         appCanvas = new Canvas();
-
         linePath = new Path();
 
         //Set paint brush initial settings
@@ -91,6 +86,10 @@ public class DrawArea extends View {
     }
 
 
+    //change brush size
+    public void changeBrushSize(int brushSizeIn){
+        paintBrush.setStrokeWidth(brushSizeIn);
+    }
 
     //fill background with color
     public void changeBackgroundColor(int colorIn){
@@ -98,7 +97,6 @@ public class DrawArea extends View {
         paintBrush.setColor(currentColor);
         Log.i("CHANGED", "Filled Canvas with color.");
         invalidate();
-
     }
 
 
@@ -134,7 +132,7 @@ public class DrawArea extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         appBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         appCanvas = new Canvas(appBitmap);
-
     }
+
 
 }
