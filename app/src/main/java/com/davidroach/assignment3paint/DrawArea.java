@@ -82,7 +82,7 @@ public class DrawArea extends View {
         //Set paint brush initial settings
         paintBrush = new Paint();
         paintBrush.setAntiAlias(true);
-        paintBrush.setStrokeWidth(50);
+        paintBrush.setStrokeWidth(10);
         paintBrush.setStrokeJoin(Paint.Join.ROUND);
         paintBrush.setStrokeCap(Paint.Cap.ROUND);
         paintBrush.setStyle(Paint.Style.STROKE);
