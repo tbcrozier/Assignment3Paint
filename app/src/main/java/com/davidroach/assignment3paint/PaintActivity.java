@@ -15,14 +15,17 @@ public class PaintActivity extends AppCompatActivity {
     private ImageButton openButton;
     private ImageButton saveButton;
 
-    //triggered when bucketButton is pressed
-    boolean fillButtonPressed;
+    private DrawArea customView;
+
+    //will be passed to onTouchEvent
+    boolean eraseButtonPressed;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
-
 
 
         pencilButton = (ImageButton) findViewById(R.id.pencilButton);
@@ -31,27 +34,30 @@ public class PaintActivity extends AppCompatActivity {
         eraseButton = (ImageButton) findViewById(R.id.eraseButton);
         openButton = (ImageButton) findViewById(R.id.openButton);
         saveButton = (ImageButton) findViewById(R.id.saveButton);
+        customView = (DrawArea) findViewById(R.id.draw_area_view);
 
-        fillButtonPressed = false;
+        eraseButtonPressed = false;
 
         //setup image button onClickListeners
         pencilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                customView.changeBrushSize(10);
             }
         });
 
+        //Thicken stroke for brush size.
         brushButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                customView.changeBrushSize(30);
             }
         });
 
         bucketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                customView.changeBackgroundColor();
 
             }
         });

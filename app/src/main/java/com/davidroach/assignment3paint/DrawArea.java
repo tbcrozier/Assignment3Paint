@@ -70,7 +70,6 @@ public class DrawArea extends View {
     //
     public void setup(AttributeSet attrs){
         setCurrentColor(Color.BLACK);
-
         appCanvas = new Canvas();
         linePath = new Path();
 
@@ -92,9 +91,8 @@ public class DrawArea extends View {
     }
 
     //fill background with color
-    public void changeBackgroundColor(int colorIn){
-        currentColor = colorIn;
-        paintBrush.setColor(currentColor);
+    public void changeBackgroundColor(){
+        this.setBackgroundColor(currentColor);
         Log.i("CHANGED", "Filled Canvas with color.");
         invalidate();
     }
