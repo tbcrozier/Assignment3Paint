@@ -34,7 +34,19 @@ public class PaintActivity extends AppCompatActivity {
         eraseButton = (ImageButton) findViewById(R.id.eraseButton);
         openButton = (ImageButton) findViewById(R.id.openButton);
         saveButton = (ImageButton) findViewById(R.id.saveButton);
+
         customView = (DrawArea) findViewById(R.id.draw_area_view);
+
+        //set button transparency
+        pencilButton.getBackground().setAlpha(100);
+        brushButton.getBackground().setAlpha(100);
+        bucketButton.getBackground().setAlpha(100);
+        eraseButton.getBackground().setAlpha(100);
+        openButton.getBackground().setAlpha(100);
+        saveButton.getBackground().setAlpha(100);
+
+
+
 
         eraseButtonPressed = false;
 
