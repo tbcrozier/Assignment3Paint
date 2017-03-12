@@ -25,11 +25,15 @@ public class DrawArea extends View {
 
 
     private int currentColor;
+    private int eraseColor;
     private Paint paintBrush;
     private Canvas appCanvas;
     private Paint canvasPaint;
     private Path linePath;
     private Bitmap appBitmap;
+
+    //will be passed to onTouchEvent
+    boolean eraseButtonPressed;
 
 
 
@@ -69,6 +73,9 @@ public class DrawArea extends View {
 
     //
     public void setup(AttributeSet attrs){
+
+        eraseButtonPressed = false;
+        eraseColor = Color.WHITE;
         setCurrentColor(Color.BLACK);
         appCanvas = new Canvas();
         linePath = new Path();
@@ -80,8 +87,11 @@ public class DrawArea extends View {
         paintBrush.setStrokeJoin(Paint.Join.ROUND);
         paintBrush.setStrokeCap(Paint.Cap.ROUND);
         paintBrush.setStyle(Paint.Style.STROKE);
+        paintBrush.setColor(currentColor);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
+        setBackgroundColor(Color.WHITE);
+
     }
 
 
@@ -92,7 +102,7 @@ public class DrawArea extends View {
 
     //fill background with color
     public void changeBackgroundColor(){
-        this.setBackgroundColor(currentColor);
+        appCanvas.drawColor(currentColor);
         Log.i("CHANGED", "Filled Canvas with color.");
         invalidate();
     }
@@ -104,20 +114,30 @@ public class DrawArea extends View {
         float xCord = event.getX();
         float yCord = event.getY();
 
+        //if erase flag is true change area touched to canvas background color Color.WHITE
+        if(eraseButtonPressed == true){
+            Log.i("ERASE_BUTTON: ",  "ACTIVE");
 
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                linePath.moveTo(xCord, yCord);
-                break;
-            case MotionEvent.ACTION_UP:
-                appCanvas.drawPath(linePath, paintBrush);
-                linePath.reset();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                linePath.lineTo(xCord, yCord);
-                break;
-            default:
-                return false;
+            paintBrush.setColor(eraseColor);
+        }
+        else{
+            Log.i("ERASE_BUTTON: ",  "NOT ACTIVE");
+            paintBrush.setColor(currentColor);
+        }
+
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    linePath.moveTo(xCord, yCord);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    appCanvas.drawPath(linePath, paintBrush);
+                    linePath.reset();
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    linePath.lineTo(xCord, yCord);
+                    break;
+                default:
+                    return false;
         }
 
         //redraw Canvas
@@ -125,6 +145,9 @@ public class DrawArea extends View {
         return true;
     }
 
+     public void setEraseButtonPressed(boolean flagIn){
+         eraseButtonPressed = flagIn;
+     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
