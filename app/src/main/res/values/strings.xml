@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Assignment3Paint</string>
+    <string name="brush_button">brushButton</string>
+    <string name="pencil_button">pencilButton</string>
+    <string name="save_button">saveButton</string>
+    <string name="open_button">openButton</string>
+    <string name="erase_button">eraseButton</string>
+    <string name="bucket_button">bucketButton</string>
 </resources>
