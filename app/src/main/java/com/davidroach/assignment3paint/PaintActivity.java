@@ -1,9 +1,15 @@
 package com.davidroach.assignment3paint;
 
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.util.Log;
+import android.widget.Toast;
+
+
 
 
 public class PaintActivity extends AppCompatActivity {
@@ -86,14 +92,32 @@ public class PaintActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                saveToGallery();
             }
         });
 
+    } //end oncreate
 
+
+    
+    public void saveToGallery() {
+        try {
+            customView.setDrawingCacheEnabled(true);
+            Bitmap b = customView.getDrawingCache();
+            MediaStore.Images.Media.insertImage(this.getContentResolver(), b, "Drawing", "Random Drawing");
+            Toast.makeText(this, "Image Saved To Gallery.", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Log.i("EXECPTION", e.toString());
+        }
+    }
+
+
+        public void openFromGallery(){
+
+      }
 
     }
 
 
 
-}
+
