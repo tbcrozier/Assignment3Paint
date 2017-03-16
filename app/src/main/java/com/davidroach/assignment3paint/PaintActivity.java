@@ -36,6 +36,7 @@ public class PaintActivity extends AppCompatActivity {
         return true;
     }
 
+    //Set overflow menubar icons to visible.
     @Override
     protected boolean onPrepareOptionsPanel(View view, Menu menu) {
         if (menu != null) {
