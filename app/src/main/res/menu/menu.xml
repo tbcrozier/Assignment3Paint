@@ -7,6 +7,10 @@
 
 
         <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/Label"
+        android:title="@string/tools"
+        app:showAsAction="always"/>
         <item
             android:id="@+id/action_pencil"
             android:title="@string/pencil"
