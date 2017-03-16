@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PaintActivity">
+
+
+
+        <!-- "Mark Favorite", should appear as action button if possible -->
+        <item
+            android:id="@+id/action_pencil"
+            android:title="@string/pencil"
+            android:icon="@drawable/pencil48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_brush"
+            android:title="@string/brush"
+            android:icon="@drawable/brush48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_bucket"
+            android:title="@string/bucket"
+            android:icon="@drawable/bucket48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_eraser"
+            android:title="@string/erase"
+            android:icon="@drawable/eraser48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_open"
+            android:title="@string/open"
+            android:icon="@drawable/folder48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_save"
+            android:title="@string/save"
+            android:icon="@drawable/save48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_quit"
+            android:title="@string/quit"
+
+            app:showAsAction="never"/>
+
+
+
+
+
+
+</menu>
