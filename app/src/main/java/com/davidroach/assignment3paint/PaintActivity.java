@@ -2,8 +2,6 @@ package com.davidroach.assignment3paint;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.ImageButton;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -22,14 +18,6 @@ import java.lang.reflect.Method;
 
 public class PaintActivity extends AppCompatActivity {
 
-    /*
-    private ImageButton pencilButton;
-    private ImageButton brushButton;
-    private ImageButton bucketButton;
-    private ImageButton eraseButton;
-    private ImageButton openButton;
-    private ImageButton saveButton;
-    */
 
     private DrawArea customView;
     @Override
@@ -150,9 +138,6 @@ public class PaintActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
-
-
-
 
     }
 
