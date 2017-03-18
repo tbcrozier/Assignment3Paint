@@ -27,25 +27,6 @@ public class PaintActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
 
-        //rotation code starts here
-        if (savedInstanceState == null) {  // no rotation - total new start
-            //Place data that will be saved through rotation
-            //DrawArea customView = savedInstanceState.();
-            int currentColor = 0;
-            int eraseColor = 0;
-            Bitmap appBitmap = null;
-            //Canvas appCanvas = savedInstanceState.getClassLoader();
-
-        } else { // possibly a rotation - may have data
-            //Place data that will be saved through rotation
-            //DrawArea customView = savedInstanceState.();
-            int currentColor = savedInstanceState.getInt("color");
-            int eraseColor = savedInstanceState.getInt("eraseColor");
-            Bitmap appBitmap;
-
-
-        }
-        //rotation code ends here
 
         pencilButton = (ImageButton) findViewById(R.id.pencilButton);
         brushButton = (ImageButton) findViewById(R.id.brushButton);
@@ -114,15 +95,6 @@ public class PaintActivity extends AppCompatActivity {
         });
 
     }
-
-    //rotation code continued
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-
-
-        }
 
 
 }
