@@ -54,22 +54,22 @@ public class DrawArea extends View {
         setup(attrs);
     }
 
-    //Getters and setters for savedInstanceState Data
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawBitmap(appBitmap, 0, 0, canvasPaint);
         canvas.drawPath(linePath, paintBrush);
-
-
     }
+
+
 
     //sets color variable to be used in brushes and fonts.
     public void setCurrentColor(int colorIn){
         currentColor = colorIn;
         //paintBrush.setColor(colorIn);
+
     }
+
 
     //
     public void setup(AttributeSet attrs){
@@ -91,7 +91,9 @@ public class DrawArea extends View {
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
         setBackgroundColor(Color.WHITE);
+
     }
+
 
     //change brush size
     public void changeBrushSize(int brushSizeIn){
@@ -152,5 +154,6 @@ public class DrawArea extends View {
         appBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         appCanvas = new Canvas(appBitmap);
     }
+
 
 }

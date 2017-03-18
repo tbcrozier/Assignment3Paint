@@ -1,26 +1,14 @@
 package com.davidroach.assignment3paint;
 
-
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.os.PersistableBundle;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.provider.MediaStore;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.ImageButton;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -30,14 +18,6 @@ import java.lang.reflect.Method;
 
 public class PaintActivity extends AppCompatActivity {
 
-    /*
-    private ImageButton pencilButton;
-    private ImageButton brushButton;
-    private ImageButton bucketButton;
-    private ImageButton eraseButton;
-    private ImageButton openButton;
-    private ImageButton saveButton;
-    */
 
     private DrawArea customView;
     @Override
@@ -63,6 +43,7 @@ public class PaintActivity extends AppCompatActivity {
         }
         return super.onPrepareOptionsPanel(view, menu);
     }
+
 
 
 
@@ -158,10 +139,6 @@ public class PaintActivity extends AppCompatActivity {
 
         }
 
-
-
-
-
     }
 
     public void  openGalleryImage()
@@ -170,7 +147,6 @@ public class PaintActivity extends AppCompatActivity {
         galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
-
     }
 
          public void quit(){
@@ -183,6 +159,3 @@ public class PaintActivity extends AppCompatActivity {
 
 
 
-
-
-}
