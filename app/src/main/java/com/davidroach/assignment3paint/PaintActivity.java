@@ -1,7 +1,13 @@
 package com.davidroach.assignment3paint;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +20,9 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.lang.reflect.Method;
+
+import static android.graphics.Color.BLUE;
+import static android.graphics.Color.WHITE;
 
 
 public class PaintActivity extends AppCompatActivity {
@@ -57,31 +66,43 @@ public class PaintActivity extends AppCompatActivity {
 
     } //end oncreate
 
-/*
+
     //Handles imaged returned from openGalleryImage
+    //requestCode =1 for success
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if (resultCode == RESULT_OK) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == 1) {
-                Uri uriReturned = data.getData();
-                String imagePath= getRealPathFromURI(currImageURI);
 
-                File file = new File(imagePath);
+        if (requestCode == 1  && resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            
 
-                if (file.exists()) {
-                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    //drawView.setBackground(d);
-                }
-                else
-                {
-                    // file does not exist
-                }
+            File myFile = new File(selectedImage.getPath());
+            String absPath = myFile.getPath();
+            Bitmap bitmap;
 
-            }
+    try {
+        bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(absPath));
+        customView.appCanvas.drawBitmap(bitmap, 0, 0, customView.canvasPaint);
+        customView.invalidate();
+    }
+    catch (Exception e){
+        Log.i("ERROR",e.toString());
+    }
+
+
+
+int l=1;
+
+            //customView.invalidate();
+
+
+
+
         }
     }
-    */
+
 
 
 
@@ -143,9 +164,17 @@ public class PaintActivity extends AppCompatActivity {
 
     public void  openGalleryImage()
     {
+        /*
         Intent galleryIntent = new Intent();
         galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
+        tartActivityForResult(Intent.createChooser(galleryIntent, ""),1);
+
+        */
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+       //galleryIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
 

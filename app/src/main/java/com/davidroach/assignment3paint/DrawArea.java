@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.ImageView;
 
 
 /**
@@ -26,11 +27,17 @@ public class DrawArea extends View {
 
     private int currentColor;
     private int eraseColor;
+
+    //needed for onsizeChanged to get canvas dimensions.
+    private int width;
+    private int height;
+
+
     private Paint paintBrush;
-    private Canvas appCanvas;
-    private Paint canvasPaint;
+    public Canvas appCanvas;
+    protected Paint canvasPaint;
     private Path linePath;
-    private Bitmap appBitmap;
+    protected Bitmap appBitmap;
 
     //will be passed to onTouchEvent
     boolean eraseButtonPressed;
@@ -60,6 +67,8 @@ public class DrawArea extends View {
         canvas.drawBitmap(appBitmap, 0, 0, canvasPaint);
         canvas.drawPath(linePath, paintBrush);
     }
+
+
 
 
 
@@ -151,8 +160,20 @@ public class DrawArea extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        this.width = w;
+        this.height = h;
+
         appBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         appCanvas = new Canvas(appBitmap);
+    }
+
+    public int getCanvasWidth(){
+        return width;
+    }
+
+    public int getCanvasHeight(){
+        return height;
     }
 
 
