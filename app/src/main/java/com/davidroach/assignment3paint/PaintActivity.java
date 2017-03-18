@@ -2,6 +2,7 @@ package com.davidroach.assignment3paint;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.ImageButton;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.File;
 import java.lang.reflect.Method;
 
 
@@ -63,88 +65,39 @@ public class PaintActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paint);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
-/*
-        pencilButton = (ImageButton) findViewById(R.id.pencilButton);
-        brushButton = (ImageButton) findViewById(R.id.brushButton);
-        bucketButton = (ImageButton) findViewById(R.id.bucketButton);
-        eraseButton = (ImageButton) findViewById(R.id.eraseButton);
-        openButton = (ImageButton) findViewById(R.id.openButton);
-        saveButton = (ImageButton) findViewById(R.id.saveButton);
-
-  */
-
         customView = (DrawArea) findViewById(R.id.draw_area_view);
-/*
-        //set button transparency
-        pencilButton.getBackground().setAlpha(100);
-        brushButton.getBackground().setAlpha(100);
-        bucketButton.getBackground().setAlpha(100);
-        eraseButton.getBackground().setAlpha(100);
-        openButton.getBackground().setAlpha(100);
-        saveButton.getBackground().setAlpha(100);
-*/
-        /*Options Moved to Menubar  MAY BE REMOVED*/
-
-/*
-        //setup image button onClickListeners
-        pencilButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customView.setEraseButtonPressed(false);
-                customView.changeBrushSize(10);
-            }
-        });
-
-        //Thicken stroke for brush size.
-        brushButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customView.setEraseButtonPressed(false);
-                customView.changeBrushSize(30);
-            }
-        });
-
-        bucketButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customView.setEraseButtonPressed(false);
-                customView.changeBackgroundColor();
-
-            }
-        });
-
-        eraseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customView.setEraseButtonPressed(true);
-            }
-        });
-
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveToGallery();
-            }
-        });
-
-        */
 
     } //end oncreate
 
+/*
+    //Handles imaged returned from openGalleryImage
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == 1) {
+                Uri uriReturned = data.getData();
+                String imagePath= getRealPathFromURI(currImageURI);
+
+                File file = new File(imagePath);
+
+                if (file.exists()) {
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    //drawView.setBackground(d);
+                }
+                else
+                {
+                    // file does not exist
+                }
+
+            }
+        }
+    }
+    */
 
 
 
 
-
-    /* Moved to BrushOPtionActivit.java   MAY BE REMOVED */
     public void saveToGallery() {
         try {
             customView.setDrawingCacheEnabled(true);
@@ -184,7 +137,7 @@ public class PaintActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_open:
-
+                openGalleryImage();
                 return true;
 
             case R.id.action_quit:
@@ -197,12 +150,23 @@ public class PaintActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+
+
+
+
     }
 
-
-    public void quit(){
-
+    public void  openGalleryImage()
+    {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
+
+         public void quit(){
+
+        }
 
 
     }
