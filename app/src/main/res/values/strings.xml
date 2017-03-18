@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Assignment3Paint</string>
     <string name="brush_button">brushButton</string>
     <string name="pencil_button">pencilButton</string>
@@ -12,4 +13,16 @@
     <string name="erase">Erase</string>
     <string name="save">Save</string>
     <string name="paint">Paint</string>
+
+    <string name="app_name">Free Paint</string>
+    <string name="color">Color</string>
+    <string name="pencil">Pencil</string>
+    <string name="brush">Brush</string>
+    <string name="bucket">Bucket</string>
+    <string name="erase">Erase</string>
+    <string name="open">Open</string>
+    <string name="save">Save</string>
+    <string name="quit">Quit</string>
+    <string name="tools">Tools</string>
+
 </resources>
