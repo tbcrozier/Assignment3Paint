@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -56,6 +57,7 @@ public class PaintActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,7 @@ public class PaintActivity extends AppCompatActivity {
 
         if (requestCode == 1  && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
-            
+
 
             File myFile = new File(selectedImage.getPath());
             String absPath = myFile.getPath();
@@ -94,8 +96,6 @@ public class PaintActivity extends AppCompatActivity {
 
 
 int l=1;
-
-            //customView.invalidate();
 
 
 
@@ -153,12 +153,17 @@ int l=1;
                 quit();
                 return true;
 
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
+
+    }
+
+    public void changeBrushColor(){
 
     }
 
@@ -181,6 +186,15 @@ int l=1;
          public void quit(){
 
         }
+
+
+    //called when one of the color pick buttons are clicked.
+    public void colorClick(View viewIn){
+        int  newColor = Color.parseColor(viewIn.getTag().toString());
+        customView.setCurrentColor(newColor);
+        Log.i("Color Tag:", Integer.toString(newColor));
+        Log.i("ColorClick","Active");
+    }
 
 
     }

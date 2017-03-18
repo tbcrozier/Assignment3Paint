@@ -38,6 +38,8 @@
         android:orientation="horizontal" >
         <!-- Color Circle Palatte -->
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c1"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -47,6 +49,8 @@
             android:tag="#FF660000" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c2"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -56,6 +60,8 @@
             android:tag="#FFFF0000" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c3"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -65,6 +71,8 @@
             android:tag="#FFFF6600" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c4"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -74,6 +82,8 @@
             android:tag="#FFFFCC00" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c5"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -83,6 +93,8 @@
             android:tag="#FF009900" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c6"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -91,6 +103,8 @@
             android:src="@drawable/paint"
             android:tag="#FF009999" />
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c21"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -100,6 +114,8 @@
             android:tag="#FFFF6666" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c7"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -109,6 +125,8 @@
             android:tag="#FFFFFFFF" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c8"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -118,6 +136,8 @@
             android:tag="#FF787878" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c9"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -128,11 +148,14 @@
     </LinearLayout>
     <!-- Bottom Row -->
     <LinearLayout
+        android:id="@+id/c10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
         <!-- Color Circle Palatte -->
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c11"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -142,6 +165,8 @@
             android:tag="#FF0000FF" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c12"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -151,6 +176,8 @@
             android:tag="#FF990099" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c13"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -160,6 +187,8 @@
             android:tag="#FFFF6666" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c14"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -169,6 +198,8 @@
             android:tag="#FFFFFFFF" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c15"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -178,6 +209,8 @@
             android:tag="#FF787878" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c16"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -186,6 +219,8 @@
             android:src="@drawable/paint"
             android:tag="#FF000000" />
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c17"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -195,6 +230,8 @@
             android:tag="#FFCC0000" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c18"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -204,6 +241,8 @@
             android:tag="#FFFFFFFF" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c19"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
@@ -213,6 +252,8 @@
             android:tag="#FF787878" />
 
         <ImageButton
+            android:onClick="colorClick"
+            android:id="@+id/c20"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
