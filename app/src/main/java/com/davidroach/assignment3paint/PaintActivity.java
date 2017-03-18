@@ -74,7 +74,7 @@ public class PaintActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+/*
 
         if (requestCode == 1  && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
@@ -95,12 +95,12 @@ public class PaintActivity extends AppCompatActivity {
 
 
 
-int l=1;
+        int l=1;
 
 
 
 
-        }
+        }  */
     }
 
 
