@@ -1,10 +1,18 @@
 package com.davidroach.assignment3paint;
 
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.os.PersistableBundle;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -55,7 +63,6 @@ public class PaintActivity extends AppCompatActivity {
         }
         return super.onPrepareOptionsPanel(view, menu);
     }
-
 
 
 
@@ -154,6 +161,7 @@ public class PaintActivity extends AppCompatActivity {
 
 
 
+
     }
 
     public void  openGalleryImage()
@@ -162,6 +170,7 @@ public class PaintActivity extends AppCompatActivity {
         galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
+
     }
 
          public void quit(){
@@ -174,3 +183,6 @@ public class PaintActivity extends AppCompatActivity {
 
 
 
+
+
+}
