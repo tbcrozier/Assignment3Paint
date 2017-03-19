@@ -1,5 +1,6 @@
 package com.davidroach.assignment3paint;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -20,10 +21,13 @@ import java.lang.reflect.Method;
 
 public class PaintActivity extends AppCompatActivity {
 
+     Dialog color_dialog; //color picker dialog.
+
 
     private DrawArea customView;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -54,9 +58,15 @@ public class PaintActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(Color.parseColor("#DCDCDC"));
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         customView = (DrawArea) findViewById(R.id.draw_area_view);
+
+        //color picker dialog.
+        color_dialog = new Dialog(this);
+        color_dialog.setContentView(R.layout.color_picker);
 
     } //end oncreate
 
@@ -132,17 +142,25 @@ public class PaintActivity extends AppCompatActivity {
             case R.id.action_quit:
                 quit();
                 return true;
+            case R.id.action_color:
+                showColorPicker();
+                return true;
 
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                //handle unknown.
+                //this should never be called.
                 return super.onOptionsItemSelected(item);
 
         }
 
     }
 
+
+    public void showColorPicker(){
+        color_dialog.setTitle("Title...");
+        color_dialog.show();
+    }
 
     public void  openGalleryImage()
     {
@@ -162,6 +180,10 @@ public class PaintActivity extends AppCompatActivity {
     public void colorClick(View viewIn){
         int  newColor = Color.parseColor(viewIn.getTag().toString());
         customView.setCurrentColor(newColor);
+
+        //close color dialog
+        color_dialog.dismiss();
+
         Log.i("Color Tag:", Integer.toString(newColor));
         Log.i("ColorClick","Active");
     }
