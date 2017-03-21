@@ -16,4 +16,7 @@
     <string name="oval">Oval</string>
     <string name="triangle">Triangle</string>
     <string name="paint">Paint</string>
+    <string name="sml_string">Small</string>
+    <string name="med_string">Medium</string>
+    <string name="lrg_string">Large</string>
 </resources>
