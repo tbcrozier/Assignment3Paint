@@ -13,18 +13,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
 
 
 
 
-public class PaintActivity extends AppCompatActivity {
+public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
 
-     Dialog color_dialog; //color picker dialog.
-
+    Dialog color_dialog; //color picker dialog.
 
     private DrawArea customView;
+
+    //Brush Picker Size Variables
+    private float smallBrush, mediumBrush, largeBrush;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -51,9 +55,6 @@ public class PaintActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,13 @@ public class PaintActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         customView = (DrawArea) findViewById(R.id.draw_area_view);
+
+        //Brush Size Value Instantiation
+        smallBrush = getResources().getInteger(R.integer.small_size);
+        mediumBrush = getResources().getInteger(R.integer.medium_size);
+        largeBrush = getResources().getInteger(R.integer.large_size);
+        customView.setBrushSize(smallBrush);
+        //End Brush Size Value Instantiation
 
         //color picker dialog.
         color_dialog = new Dialog(this);
@@ -94,9 +102,6 @@ public class PaintActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public void saveToGallery() {
         try {
             customView.setDrawingCacheEnabled(true);
@@ -121,7 +126,42 @@ public class PaintActivity extends AppCompatActivity {
             case R.id.action_brush:
                 customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
-                customView.changeBrushSize(30);
+                //customView.changeBrushSize(30);
+                final Dialog brushDialog = new Dialog(this);
+                brushDialog.setTitle("Brush size:");
+                brushDialog.setContentView(R.layout.brush_picker);
+
+                ImageButton smallBtn = (ImageButton)brushDialog.findViewById(R.id.small_brush);
+                smallBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        customView.setBrushSize(smallBrush);
+                        customView.setLastBrushSize(smallBrush);
+                        brushDialog.dismiss();
+                    }
+                });
+
+                ImageButton mediumBtn = (ImageButton)brushDialog.findViewById(R.id.medium_brush);
+                mediumBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        customView.setBrushSize(mediumBrush);
+                        customView.setLastBrushSize(mediumBrush);
+                        brushDialog.dismiss();
+                    }
+                });
+
+                ImageButton largeBtn = (ImageButton)brushDialog.findViewById(R.id.large_brush);
+                largeBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        customView.setBrushSize(largeBrush);
+                        customView.setLastBrushSize(largeBrush);
+                        brushDialog.dismiss();
+                    }
+                });
+
+                brushDialog.show();
                 return true;
 
             case R.id.action_bucket:
@@ -198,9 +238,14 @@ public class PaintActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
 
-         public void quit(){
+    public void quit(){
+    //Blake will put quit code here
+    }
 
-        }
+    public void blanksheet(){
+        //Blake will put blank sheet code here
+    }
+
 
 
     //called when one of the color pick buttons are clicked.
@@ -215,8 +260,12 @@ public class PaintActivity extends AppCompatActivity {
         Log.i("ColorClick","Active");
     }
 
+//Draw_btn Onclick that will give brush size options
+    @Override
+    public void onClick(View view) {
 
     }
+}
 
 
 

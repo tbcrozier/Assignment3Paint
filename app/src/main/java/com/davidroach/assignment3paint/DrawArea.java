@@ -15,6 +15,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+//imports for brush sizes
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.util.TypedValue;
+
 
 /**
  * Created by droach-dev on 3/8/17.
@@ -24,7 +29,6 @@ public class DrawArea extends View {
 
     //Brush atrributes set in this class for now.
     //May move to main  class if the need arises.
-
 
 
     private int currentColor;
@@ -52,6 +56,9 @@ public class DrawArea extends View {
 
     //will be passed to onTouchEvent
     boolean eraseButtonPressed;
+
+    //var to hold brush sizes
+    private float brushSize, lastBrushSize;
 
 
 
@@ -110,11 +117,16 @@ public class DrawArea extends View {
         //Set paint brush initial settings
         paintBrush = new Paint();
         paintBrush.setAntiAlias(true);
-        paintBrush.setStrokeWidth(10);
+        //paintBrush.setStrokeWidth(10);
         paintBrush.setStrokeJoin(Paint.Join.ROUND);
         paintBrush.setStrokeCap(Paint.Cap.ROUND);
         paintBrush.setStyle(Paint.Style.STROKE);
         paintBrush.setColor(currentColor);
+
+        //Brush Size instantiation and setStrokeWidth to Brushsize
+        brushSize = getResources().getInteger(R.integer.medium_size);
+        lastBrushSize = brushSize;
+        paintBrush.setStrokeWidth(brushSize);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
         setBackgroundColor(Color.WHITE);
@@ -218,5 +230,18 @@ public class DrawArea extends View {
         triangleFlag = false;
     }
 
+    public void setBrushSize(float newSize){
+        //New Size
+        float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                newSize, getResources().getDisplayMetrics());
+        brushSize=pixelAmount;
+        paintBrush.setStrokeWidth(brushSize);
+    }
 
+    public void setLastBrushSize(float lastBrush){
+        lastBrushSize = lastBrush;
+    }
+    public float getLastBrushSize(){
+        return lastBrushSize;
+    }
 }
