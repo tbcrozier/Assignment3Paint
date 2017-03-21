@@ -188,6 +188,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             case R.id.action_quit:
                 quit();
                 return true;
+            
             case R.id.action_color:
                 customView.resetShapeFlags();
                 showColorPicker();
