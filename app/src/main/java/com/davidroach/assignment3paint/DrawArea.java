@@ -211,5 +211,12 @@ public class DrawArea extends View {
         dpiPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpiSizeIn, dm);
     }
 
+    protected void resetShapeFlags(){
+        lineFlag = false;
+        ovalFlag = false;
+        squareFlag = false;
+        triangleFlag = false;
+    }
+
 
 }

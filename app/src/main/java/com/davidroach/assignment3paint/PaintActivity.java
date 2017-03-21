@@ -113,29 +113,35 @@ public class PaintActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_pencil:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 customView.changeBrushSize(10);
                 return true;
 
             case R.id.action_brush:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 customView.changeBrushSize(30);
                 return true;
 
             case R.id.action_bucket:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 customView.changeBackgroundColor();
                 return true;
 
             case R.id.action_eraser:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(true);
                 return true;
 
             case R.id.action_save:
+                customView.resetShapeFlags();
                 saveToGallery();
                 return true;
 
             case R.id.action_open:
+                customView.resetShapeFlags();
                 openGalleryImage();
                 return true;
 
@@ -143,7 +149,28 @@ public class PaintActivity extends AppCompatActivity {
                 quit();
                 return true;
             case R.id.action_color:
+                customView.resetShapeFlags();
                 showColorPicker();
+                return true;
+
+            case R.id.action_line:
+                customView.resetShapeFlags();
+                customView.lineFlag = true;
+                return true;
+
+            case R.id.action_circle:
+                customView.resetShapeFlags();
+                customView.ovalFlag = true;
+                return true;
+
+            case R.id.action_triangle:
+                customView.resetShapeFlags();
+                customView.triangleFlag = true;
+                return true;
+
+            case R.id.action_square:
+                customView.resetShapeFlags();
+                customView.squareFlag = true;
                 return true;
 
 
