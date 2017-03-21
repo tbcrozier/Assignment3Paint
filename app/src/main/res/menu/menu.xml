@@ -10,10 +10,7 @@
         android:title="@string/color"
         android:icon="@drawable/palette48dp"
         app:showAsAction="always"/>
-   <!-- <item
-        android:id="@+id/Label"
-        android:title="@string/tools"
-        app:showAsAction="always"/>-->
+
 
         <item
             android:id="@+id/action_pencil"
