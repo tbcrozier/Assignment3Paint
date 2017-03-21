@@ -10,5 +10,10 @@
     <string name="quit">Quit</string>
     <string name="tools">Tools</string>
     <string name="start_new">New</string>
+    <string name="line">Line</string>
+    <string name="circle">Circle</string>
+    <string name="square">Square</string>
+    <string name="oval">Oval</string>
+    <string name="triangle">Triangle</string>
     <string name="paint">Paint</string>
 </resources>

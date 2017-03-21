@@ -10,10 +10,7 @@
         android:title="@string/color"
         android:icon="@drawable/palette48dp"
         app:showAsAction="always"/>
-   <!-- <item
-        android:id="@+id/Label"
-        android:title="@string/tools"
-        app:showAsAction="always"/>-->
+
 
         <item
             android:id="@+id/action_pencil"
@@ -36,6 +33,26 @@
             android:icon="@drawable/eraser48dp"
             app:showAsAction="always"/>
         <item
+            android:id="@+id/action_line"
+            android:title="@string/line"
+            android:icon="@drawable/eraser48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_square"
+            android:title="@string/square"
+            android:icon="@drawable/eraser48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_circle"
+            android:title="@string/circle"
+            android:icon="@drawable/eraser48dp"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_triangle"
+            android:title="@string/triangle"
+            android:icon="@drawable/eraser48dp"
+            app:showAsAction="never"/>
+        <item
             android:id="@+id/action_new"
             android:title="@string/start_new"
             android:icon="@drawable/asterisk48dp"
@@ -55,7 +72,6 @@
         <item
             android:id="@+id/action_quit"
             android:title="@string/quit"
-
             app:showAsAction="never"/>
 
 

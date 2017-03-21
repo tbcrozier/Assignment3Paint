@@ -28,6 +28,12 @@ public class DrawArea extends View {
     private int currentColor;
     private int eraseColor;
 
+    //used to determine if a shape should be drawn or a free line.
+    public boolean squareFlag;
+    public boolean triangleFlag;
+    public boolean ovalFlag;
+    public boolean lineFlag;
+
     //needed for onsizeChanged to get canvas dimensions.
     private int width;
     private int height;
