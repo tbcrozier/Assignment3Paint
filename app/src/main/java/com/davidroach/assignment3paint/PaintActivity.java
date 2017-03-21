@@ -188,7 +188,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             case R.id.action_quit:
                 quit();
                 return true;
-            
+
             case R.id.action_color:
                 customView.resetShapeFlags();
                 showColorPicker();
@@ -226,7 +226,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void showColorPicker(){
-        color_dialog.setTitle("Title...");
+        color_dialog.setTitle("");
         color_dialog.show();
     }
 

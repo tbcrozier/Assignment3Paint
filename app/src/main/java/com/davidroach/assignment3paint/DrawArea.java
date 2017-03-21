@@ -152,10 +152,20 @@ public class DrawArea extends View {
 
         float xCord = event.getX();
         float yCord = event.getY();
+        boolean isSecondShapeTouch;
 
         //if any of the the shape flags are true do shape stuff
         if(squareFlag == true || ovalFlag == true || lineFlag == true || triangleFlag == true){
             Log.i("SHAPE","In shape section of code.");
+
+            //get first xy coord.
+
+
+            //check isShapeSecondTouch if true pick shape, draw, and set back to false
+
+
+
+
         }
         else {
 
