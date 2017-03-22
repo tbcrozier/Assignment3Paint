@@ -212,7 +212,11 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void quit(){
-    //Blake will put quit code here
+    //Quit code here
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     public void blanksheet(){
