@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +17,6 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
-
-
-
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -182,6 +180,9 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             case R.id.action_quit:
                 quit();
                 return true;
+            case R.id.action_new:
+                customView.blanksheet();
+                return true;
             case R.id.action_color:
                 showColorPicker();
                 return true;
@@ -191,11 +192,8 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 //handle unknown.
                 //this should never be called.
                 return super.onOptionsItemSelected(item);
-
         }
-
     }
-
 
     public void showColorPicker(){
         color_dialog.setTitle("Title...");
@@ -219,10 +217,6 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
-    public void blanksheet(){
-        //Blake will put blank sheet code here
-    }
-
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){
         int  newColor = Color.parseColor(viewIn.getTag().toString());
@@ -238,7 +232,6 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
 //Draw_btn Onclick that will give brush size options
     @Override
     public void onClick(View view) {
-
     }
 }
 
