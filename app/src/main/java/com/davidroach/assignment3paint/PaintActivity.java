@@ -223,8 +223,6 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         //Blake will put blank sheet code here
     }
 
-
-
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){
         int  newColor = Color.parseColor(viewIn.getTag().toString());
