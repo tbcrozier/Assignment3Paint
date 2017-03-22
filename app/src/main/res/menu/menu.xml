@@ -40,17 +40,17 @@
         <item
             android:id="@+id/action_square"
             android:title="@string/square"
-            android:icon="@drawable/eraser48dp"
+            android:icon="@drawable/square"
             app:showAsAction="never"/>
         <item
             android:id="@+id/action_circle"
             android:title="@string/circle"
-            android:icon="@drawable/eraser48dp"
+            android:icon="@drawable/circle"
             app:showAsAction="never"/>
         <item
             android:id="@+id/action_triangle"
             android:title="@string/triangle"
-            android:icon="@drawable/eraser48dp"
+            android:icon="@drawable/triangle"
             app:showAsAction="never"/>
         <item
             android:id="@+id/action_new"
