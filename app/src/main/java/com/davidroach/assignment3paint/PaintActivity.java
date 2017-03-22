@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,6 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
-
-
 
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
@@ -186,7 +185,11 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.action_quit:
-                quit();
+                //quit();
+                return true;
+
+            case R.id.action_new:
+                customView.blanksheet();
                 return true;
             
             case R.id.action_color:
@@ -238,16 +241,15 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
-
-    public void quit(){
-    //Blake will put quit code here
+/*
+    public void quit(){ 
+        //Quit code here 
+        Intent intent = new Intent(Intent.ACTION_MAIN); 
+        intent.addCategory(Intent.CATEGORY_HOME); 
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+        startActivity(intent); 
     }
-
-    public void blanksheet(){
-        //Blake will put blank sheet code here
-    }
-
-
+*/
 
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){

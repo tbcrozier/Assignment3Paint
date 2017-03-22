@@ -247,7 +247,7 @@ public class DrawArea extends View {
     }
 
     public void blanksheet(){
-        //Blake will put blank sheet code here
+        //Blank sheet code here
         appCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
     }
