@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +16,9 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
+
+
+
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -116,11 +118,13 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_pencil:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 customView.changeBrushSize(10);
                 return true;
 
             case R.id.action_brush:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 //customView.changeBrushSize(30);
                 final Dialog brushDialog = new Dialog(this);
@@ -161,30 +165,53 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.action_bucket:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
                 customView.changeBackgroundColor();
                 return true;
 
             case R.id.action_eraser:
+                customView.resetShapeFlags();
                 customView.setEraseButtonPressed(true);
                 return true;
 
             case R.id.action_save:
+                customView.resetShapeFlags();
                 saveToGallery();
                 return true;
 
             case R.id.action_open:
+                customView.resetShapeFlags();
                 openGalleryImage();
                 return true;
 
             case R.id.action_quit:
                 quit();
                 return true;
-            case R.id.action_new:
-                customView.blanksheet();
-                return true;
+            
             case R.id.action_color:
+                customView.resetShapeFlags();
                 showColorPicker();
+                return true;
+
+            case R.id.action_line:
+                customView.resetShapeFlags();
+                customView.lineFlag = true;
+                return true;
+
+            case R.id.action_circle:
+                customView.resetShapeFlags();
+                customView.ovalFlag = true;
+                return true;
+
+            case R.id.action_triangle:
+                customView.resetShapeFlags();
+                customView.triangleFlag = true;
+                return true;
+
+            case R.id.action_square:
+                customView.resetShapeFlags();
+                customView.squareFlag = true;
                 return true;
 
 
@@ -192,8 +219,11 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 //handle unknown.
                 //this should never be called.
                 return super.onOptionsItemSelected(item);
+
         }
+
     }
+
 
     public void showColorPicker(){
         color_dialog.setTitle("Title...");
@@ -210,12 +240,14 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void quit(){
-    //Quit code here
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+    //Blake will put quit code here
     }
+
+    public void blanksheet(){
+        //Blake will put blank sheet code here
+    }
+
+
 
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){
@@ -232,6 +264,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
 //Draw_btn Onclick that will give brush size options
     @Override
     public void onClick(View view) {
+
     }
 }
 

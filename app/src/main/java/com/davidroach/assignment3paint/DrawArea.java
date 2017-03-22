@@ -2,6 +2,8 @@ package com.davidroach.assignment3paint;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.Paint;
@@ -38,9 +40,12 @@ public class DrawArea extends View {
     public boolean ovalFlag;
     public boolean lineFlag;
 
+
     //needed for onsizeChanged to get canvas dimensions.
     private int width;
     private int height;
+
+    public float dpiPixels;
 
 
     private Paint paintBrush;
@@ -96,6 +101,13 @@ public class DrawArea extends View {
     //
     public void setup(AttributeSet attrs){
 
+        //for on touch event
+        lineFlag = false;
+        ovalFlag = false;
+        squareFlag = false;
+        triangleFlag = false;
+
+
         eraseButtonPressed = false;
         eraseColor = Color.WHITE;
         setCurrentColor(Color.BLACK);
@@ -141,17 +153,24 @@ public class DrawArea extends View {
         float xCord = event.getX();
         float yCord = event.getY();
 
-        //if erase flag is true change area touched to canvas background color Color.WHITE
-        if(eraseButtonPressed == true){
-            Log.i("ERASE_BUTTON: ",  "ACTIVE");
-
-            paintBrush.setColor(eraseColor);
+        //if any of the the shape flags are true do shape stuff
+        if(squareFlag == true || ovalFlag == true || lineFlag == true || triangleFlag == true){
+            Log.i("SHAPE","In shape section of code.");
         }
-        else{
-            Log.i("ERASE_BUTTON: ",  "NOT ACTIVE");
-            paintBrush.setColor(currentColor);
-        }
+        else {
 
+            //if erase flag is true change area touched to canvas background color Color.WHITE
+            if (eraseButtonPressed == true) {
+                Log.i("ERASE_BUTTON: ", "ACTIVE");
+
+                paintBrush.setColor(eraseColor);
+            } else {
+                Log.i("ERASE_BUTTON: ", "NOT ACTIVE");
+                paintBrush.setColor(currentColor);
+            }
+
+            //IF THERE ARE NO SHAPE FLAGS CHECKED
+            //for free line draws.
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     linePath.moveTo(xCord, yCord);
@@ -165,6 +184,7 @@ public class DrawArea extends View {
                     break;
                 default:
                     return false;
+            }
         }
 
         //redraw Canvas
@@ -182,16 +202,32 @@ public class DrawArea extends View {
         this.width = w;
         this.height = h;
 
+        //called after size is calculated.  Need that width and height to make it work.
         appBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         appCanvas = new Canvas(appBitmap);
     }
 
+    //NOT NEEDED MAY BE REMOVED
+    /*
     public int getCanvasWidth(){
         return width;
     }
 
     public int getCanvasHeight(){
         return height;
+    }
+    */
+
+    private void getDpi(float dpiSizeIn) {
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        dpiPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpiSizeIn, dm);
+    }
+
+    protected void resetShapeFlags(){
+        lineFlag = false;
+        ovalFlag = false;
+        squareFlag = false;
+        triangleFlag = false;
     }
 
     public void setBrushSize(float newSize){
