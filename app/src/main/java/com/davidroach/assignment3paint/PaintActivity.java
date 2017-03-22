@@ -185,7 +185,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.action_quit:
-                //quit();
+                quit();
                 return true;
 
             case R.id.action_new:
@@ -242,14 +242,22 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
 /*
-    public void quit(){ 
+    public void quit(){
         //Quit code here 
         Intent intent = new Intent(Intent.ACTION_MAIN); 
         intent.addCategory(Intent.CATEGORY_HOME); 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
         startActivity(intent); 
     }
-*/
+    */
+
+    public void quit(){
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){
