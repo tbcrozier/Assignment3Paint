@@ -202,7 +202,7 @@ public class DrawArea extends View {
         return true;
     }
 
-     public void setEraseButtonPressed(boolean flagIn){
+    public void setEraseButtonPressed(boolean flagIn){
          eraseButtonPressed = flagIn;
      }
 
@@ -251,7 +251,15 @@ public class DrawArea extends View {
     public void setLastBrushSize(float lastBrush){
         lastBrushSize = lastBrush;
     }
+
     public float getLastBrushSize(){
         return lastBrushSize;
     }
+
+    public void blanksheet(){
+        //Blank sheet code here
+        appCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
+        invalidate();
+    }
+
 }
