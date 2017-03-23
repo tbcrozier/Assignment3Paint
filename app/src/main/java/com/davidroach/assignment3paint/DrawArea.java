@@ -156,7 +156,7 @@ public class DrawArea extends View {
 
 
         //if any of the the shape flags are true do shape stuff
-        if(squareFlag == true || ovalFlag == true || lineFlag == true || triangleFlag == true){
+        if(squareFlag == true ){
             Log.i("SHAPE","In shape section of code.");
 
             //get first xy coord.
@@ -175,28 +175,10 @@ public class DrawArea extends View {
                 //call that shape method and set the shape flag and isSecondShapeTouch back to false
                 if(squareFlag == true){
                     Log.i("SHAPE","Drawing Square");
-                    squareFlag = false;
                     isSecondShapeTouch = false;
                 }
-                if(ovalFlag == true){
-                    Log.i("SHAPE","Drawing Circle");
-                    ovalFlag = false;
-                    isSecondShapeTouch = false;
 
-                }
-                if(lineFlag == true){
-                    Log.i("SHAPE","Drawing Line");
-                    lineFlag = false;
-                    isSecondShapeTouch = false;
 
-                }
-                if(triangleFlag == true){
-                    Log.i("SHAPE","Drawing Triangle");
-                    triangleFlag = false;
-                    isSecondShapeTouch = false;
-
-                }
-                
             }
 
 
