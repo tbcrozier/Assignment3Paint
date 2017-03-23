@@ -185,13 +185,13 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.action_quit:
-                //quit();
+                quit();
                 return true;
 
             case R.id.action_new:
                 customView.blanksheet();
                 return true;
-            
+
             case R.id.action_color:
                 customView.resetShapeFlags();
                 showColorPicker();
@@ -229,7 +229,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void showColorPicker(){
-        color_dialog.setTitle("Title...");
+        color_dialog.setTitle("");
         color_dialog.show();
     }
 
@@ -241,15 +241,15 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
-/*
-    public void quit(){ 
-        //Quit code here 
-        Intent intent = new Intent(Intent.ACTION_MAIN); 
-        intent.addCategory(Intent.CATEGORY_HOME); 
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
-        startActivity(intent); 
+
+
+    public void quit(){
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
-*/
+
 
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){
