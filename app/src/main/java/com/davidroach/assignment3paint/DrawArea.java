@@ -39,6 +39,7 @@ public class DrawArea extends View {
     public boolean triangleFlag;
     public boolean ovalFlag;
     public boolean lineFlag;
+    boolean isSecondShapeTouch;
 
 
     //needed for onsizeChanged to get canvas dimensions.
@@ -152,7 +153,7 @@ public class DrawArea extends View {
 
         float xCord = event.getX();
         float yCord = event.getY();
-        boolean isSecondShapeTouch;
+
 
         //if any of the the shape flags are true do shape stuff
         if(squareFlag == true || ovalFlag == true || lineFlag == true || triangleFlag == true){
@@ -162,8 +163,41 @@ public class DrawArea extends View {
 
 
             //check isShapeSecondTouch if true pick shape, draw, and set back to false
+            if(isSecondShapeTouch == false){
+                Log.i("SHAPE","First shape touch");
+                isSecondShapeTouch = true;
 
 
+            }
+            if(isSecondShapeTouch == true){
+
+                //get shape to be drawn
+                //call that shape method and set the shape flag and isSecondShapeTouch back to false
+                if(squareFlag == true){
+                    Log.i("SHAPE","Drawing Square");
+                    squareFlag = false;
+                    isSecondShapeTouch = false;
+                }
+                if(ovalFlag == true){
+                    Log.i("SHAPE","Drawing Circle");
+                    ovalFlag = false;
+                    isSecondShapeTouch = false;
+
+                }
+                if(lineFlag == true){
+                    Log.i("SHAPE","Drawing Line");
+                    lineFlag = false;
+                    isSecondShapeTouch = false;
+
+                }
+                if(triangleFlag == true){
+                    Log.i("SHAPE","Drawing Triangle");
+                    triangleFlag = false;
+                    isSecondShapeTouch = false;
+
+                }
+                
+            }
 
 
         }
@@ -171,11 +205,11 @@ public class DrawArea extends View {
 
             //if erase flag is true change area touched to canvas background color Color.WHITE
             if (eraseButtonPressed == true) {
-                Log.i("ERASE_BUTTON: ", "ACTIVE");
+                //Log.i("ERASE_BUTTON: ", "ACTIVE");
 
                 paintBrush.setColor(eraseColor);
             } else {
-                Log.i("ERASE_BUTTON: ", "NOT ACTIVE");
+                //Log.i("ERASE_BUTTON: ", "NOT ACTIVE");
                 paintBrush.setColor(currentColor);
             }
 
@@ -260,6 +294,18 @@ public class DrawArea extends View {
         //Blank sheet code here
         appCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
+    }
+
+    private void makeLine(){
+
+    }
+
+    private void makeSquare(){
+
+    }
+
+    private void makeCircle(){
+
     }
 
 }
