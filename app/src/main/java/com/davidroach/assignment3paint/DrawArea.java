@@ -61,6 +61,14 @@ public class DrawArea extends View {
     //var to hold brush sizes
     private float brushSize, lastBrushSize;
 
+    float squareTopCornerX;
+    float squareTopCornerY;
+
+    float squareBottomCornerX;
+    float squareBottomCornerY;
+
+
+
 
 
     //Constructors
@@ -154,32 +162,35 @@ public class DrawArea extends View {
         float xCord = event.getX();
         float yCord = event.getY();
 
-
         //if any of the the shape flags are true do shape stuff
         if(squareFlag == true ){
             Log.i("SHAPE","In shape section of code.");
 
-            //get first xy coord.
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    squareTopCornerX = xCord;
+                    squareTopCornerY = yCord;
+                    Log.i("SHAPE CORD",Float.toString(squareTopCornerX) + " - " + Float.toString(squareTopCornerY));
 
+                    break;
+                case MotionEvent.ACTION_UP:
+                    squareBottomCornerX = xCord;
+                    squareBottomCornerY = yCord;
+                    Log.i("SHAPE CORD",Float.toString(squareBottomCornerX) + " - " + Float.toString(squareBottomCornerY));
 
-            //check isShapeSecondTouch if true pick shape, draw, and set back to false
-            if(isSecondShapeTouch == false){
-                Log.i("SHAPE","First shape touch");
-                isSecondShapeTouch = true;
+                    makeSquare();
+                    resetShapeFlags();
 
+                    linePath.reset();
+                    break;
+                case MotionEvent.ACTION_MOVE:
 
+                    break;
+                default:
+                    return false;
             }
-            if(isSecondShapeTouch == true){
-
-                //get shape to be drawn
-                //call that shape method and set the shape flag and isSecondShapeTouch back to false
-                if(squareFlag == true){
-                    Log.i("SHAPE","Drawing Square");
-                    isSecondShapeTouch = false;
-                }
 
 
-            }
 
 
         }
@@ -233,17 +244,6 @@ public class DrawArea extends View {
         appCanvas = new Canvas(appBitmap);
     }
 
-    //NOT NEEDED MAY BE REMOVED
-    /*
-    public int getCanvasWidth(){
-        return width;
-    }
-
-    public int getCanvasHeight(){
-        return height;
-    }
-    */
-
     private void getDpi(float dpiSizeIn) {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         dpiPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpiSizeIn, dm);
@@ -278,15 +278,18 @@ public class DrawArea extends View {
         invalidate();
     }
 
-    private void makeLine(){
-
-    }
 
     private void makeSquare(){
+        Log.i("makeSquare()", "Running");
 
-    }
+            appCanvas.drawRect(squareTopCornerX, squareTopCornerY, squareBottomCornerX, squareBottomCornerY, paintBrush);
+            //reset cord variables for good measure
+            squareBottomCornerX = 0;
+            squareBottomCornerY = 0;
+            squareTopCornerX = 0;
+            squareTopCornerY = 0;
 
-    private void makeCircle(){
+
 
     }
 
