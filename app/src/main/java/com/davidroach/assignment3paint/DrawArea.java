@@ -163,7 +163,7 @@ public class DrawArea extends View {
         float yCord = event.getY();
 
         //if any of the the shape flags are true do shape stuff
-        if(squareFlag == true ){
+        if(squareFlag){
             Log.i("SHAPE","In shape section of code.");
 
             switch (event.getAction()) {
@@ -190,14 +190,11 @@ public class DrawArea extends View {
                     return false;
             }
 
-
-
-
         }
         else {
 
             //if erase flag is true change area touched to canvas background color Color.WHITE
-            if (eraseButtonPressed == true) {
+            if (eraseButtonPressed) {
                 //Log.i("ERASE_BUTTON: ", "ACTIVE");
 
                 paintBrush.setColor(eraseColor);
@@ -258,7 +255,8 @@ public class DrawArea extends View {
 
     public void setBrushSize(float newSize){
         //New Size
-        float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+        float pixelAmount;
+        pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 newSize, getResources().getDisplayMetrics());
         brushSize=pixelAmount;
         paintBrush.setStrokeWidth(brushSize);
