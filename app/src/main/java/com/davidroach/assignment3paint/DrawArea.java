@@ -116,6 +116,10 @@ public class DrawArea extends View {
         squareFlag = false;
         triangleFlag = false;
 
+        //Brush Size instantiation and setStrokeWidth to Brushsize
+        brushSize = getResources().getInteger(R.integer.medium_size);
+        lastBrushSize = brushSize;
+
 
         eraseButtonPressed = false;
         eraseColor = Color.WHITE;
@@ -126,16 +130,12 @@ public class DrawArea extends View {
         //Set paint brush initial settings
         paintBrush = new Paint();
         paintBrush.setAntiAlias(true);
-        //paintBrush.setStrokeWidth(10);
+        paintBrush.setStrokeWidth(brushSize);
         paintBrush.setStrokeJoin(Paint.Join.ROUND);
         paintBrush.setStrokeCap(Paint.Cap.ROUND);
         paintBrush.setStyle(Paint.Style.STROKE);
         paintBrush.setColor(currentColor);
 
-        //Brush Size instantiation and setStrokeWidth to Brushsize
-        brushSize = getResources().getInteger(R.integer.medium_size);
-        lastBrushSize = brushSize;
-        paintBrush.setStrokeWidth(brushSize);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
         setBackgroundColor(Color.WHITE);
