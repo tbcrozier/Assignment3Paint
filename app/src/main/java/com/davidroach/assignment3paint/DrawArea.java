@@ -39,6 +39,7 @@ public class DrawArea extends View {
     public boolean triangleFlag;
     public boolean ovalFlag;
     public boolean lineFlag;
+    boolean isSecondShapeTouch;
 
 
     //needed for onsizeChanged to get canvas dimensions.
@@ -59,6 +60,14 @@ public class DrawArea extends View {
 
     //var to hold brush sizes
     private float brushSize, lastBrushSize;
+
+    float squareTopCornerX;
+    float squareTopCornerY;
+
+    float squareBottomCornerX;
+    float squareBottomCornerY;
+
+
 
 
 
@@ -152,16 +161,34 @@ public class DrawArea extends View {
 
         float xCord = event.getX();
         float yCord = event.getY();
-        boolean isSecondShapeTouch;
 
         //if any of the the shape flags are true do shape stuff
-        if(squareFlag == true || ovalFlag == true || lineFlag == true || triangleFlag == true){
+        if(squareFlag == true ){
             Log.i("SHAPE","In shape section of code.");
 
-            //get first xy coord.
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    squareTopCornerX = xCord;
+                    squareTopCornerY = yCord;
+                    Log.i("SHAPE CORD",Float.toString(squareTopCornerX) + " - " + Float.toString(squareTopCornerY));
 
+                    break;
+                case MotionEvent.ACTION_UP:
+                    squareBottomCornerX = xCord;
+                    squareBottomCornerY = yCord;
+                    Log.i("SHAPE CORD",Float.toString(squareBottomCornerX) + " - " + Float.toString(squareBottomCornerY));
 
-            //check isShapeSecondTouch if true pick shape, draw, and set back to false
+                    makeSquare();
+                    resetShapeFlags();
+
+                    linePath.reset();
+                    break;
+                case MotionEvent.ACTION_MOVE:
+
+                    break;
+                default:
+                    return false;
+            }
 
 
 
@@ -171,11 +198,11 @@ public class DrawArea extends View {
 
             //if erase flag is true change area touched to canvas background color Color.WHITE
             if (eraseButtonPressed == true) {
-                Log.i("ERASE_BUTTON: ", "ACTIVE");
+                //Log.i("ERASE_BUTTON: ", "ACTIVE");
 
                 paintBrush.setColor(eraseColor);
             } else {
-                Log.i("ERASE_BUTTON: ", "NOT ACTIVE");
+                //Log.i("ERASE_BUTTON: ", "NOT ACTIVE");
                 paintBrush.setColor(currentColor);
             }
 
@@ -217,17 +244,6 @@ public class DrawArea extends View {
         appCanvas = new Canvas(appBitmap);
     }
 
-    //NOT NEEDED MAY BE REMOVED
-    /*
-    public int getCanvasWidth(){
-        return width;
-    }
-
-    public int getCanvasHeight(){
-        return height;
-    }
-    */
-
     private void getDpi(float dpiSizeIn) {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         dpiPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpiSizeIn, dm);
@@ -260,6 +276,21 @@ public class DrawArea extends View {
         //Blank sheet code here
         appCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
+    }
+
+
+    private void makeSquare(){
+        Log.i("makeSquare()", "Running");
+
+            appCanvas.drawRect(squareTopCornerX, squareTopCornerY, squareBottomCornerX, squareBottomCornerY, paintBrush);
+            //reset cord variables for good measure
+            squareBottomCornerX = 0;
+            squareBottomCornerY = 0;
+            squareTopCornerX = 0;
+            squareTopCornerY = 0;
+
+
+
     }
 
 }

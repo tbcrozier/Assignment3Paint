@@ -197,20 +197,6 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 showColorPicker();
                 return true;
 
-            case R.id.action_line:
-                customView.resetShapeFlags();
-                customView.lineFlag = true;
-                return true;
-
-            case R.id.action_circle:
-                customView.resetShapeFlags();
-                customView.ovalFlag = true;
-                return true;
-
-            case R.id.action_triangle:
-                customView.resetShapeFlags();
-                customView.triangleFlag = true;
-                return true;
 
             case R.id.action_square:
                 customView.resetShapeFlags();
