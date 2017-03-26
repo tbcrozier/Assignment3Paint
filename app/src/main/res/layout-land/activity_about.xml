@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/brightYellow"
+        android:weightSum="1">
+
+
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img1" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img2" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img3" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img4" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img5" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img6" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img7" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img8" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img9" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img10" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img11" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img12" />
+
+    </GridLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:src="@drawable/paint_logo2"
+            android:contentDescription="@string/logo"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:text="@string/features"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:id="@+id/features_tv"
+            android:textColor="@color/black"
+            android:textStyle="normal|bold"
+            android:textSize="34sp"
+            android:textAlignment="center"
+            android:fontFamily="casual"
+            android:paddingTop="5dp" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:weightSum="4">
+
+        <TextView
+            android:text="@string/featSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feat_one_tv"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="@string/featOpen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feat_two_tv"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:text="@string/featNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feat_three_tv"
+            android:textSize="28sp"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:text="@string/featShape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feat_four_tv"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:paddingBottom="10dp"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img21" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img22" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/escher"
+            android:id="@+id/escher_img23" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img24" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img25" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img26" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img27" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/escher"
+            android:id="@+id/escher_img28" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/escher"
+            android:id="@+id/escher_img29" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img30" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img31" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img32" />
+
+    </GridLayout>
+
+</LinearLayout>

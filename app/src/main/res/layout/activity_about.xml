@@ -3,8 +3,48 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brightYellow">
+    android:background="@color/brightYellow"
+    android:weightSum="1">
 
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/escher"
+                android:contentDescription="@string/logo"
+                android:id="@+id/escher_img5"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/escher"
+                android:contentDescription="@string/logo"
+                android:id="@+id/escher_img6"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/escher"
+                android:contentDescription="@string/logo"
+                android:id="@+id/escher_img7"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/escher"
+                android:contentDescription="@string/logo"
+                android:id="@+id/escher_img8"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
@@ -16,7 +56,7 @@
     <TextView
         android:text="@string/features"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="52dp"
         android:id="@+id/features_tv"
         android:textColor="@color/black"
         android:textStyle="normal|bold"
@@ -59,5 +99,46 @@
         android:id="@+id/feat_four_tv"
         android:textSize="28sp"
         android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:paddingBottom="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:weightSum="4">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:id="@+id/escher_img2"
+            android:contentDescription="@string/logo"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img3"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/escher"
+            android:contentDescription="@string/logo"
+            android:id="@+id/escher_img4"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 </LinearLayout>
