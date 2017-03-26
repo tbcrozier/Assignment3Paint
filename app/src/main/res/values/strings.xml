@@ -19,4 +19,7 @@
     <string name="sml_string">Small</string>
     <string name="med_string">Medium</string>
     <string name="lrg_string">Large</string>
+    <string name="about">About</string>
+    <string name="logo">Logo</string>
+    <string name="features"><u>Features</u></string>
 </resources>

@@ -188,6 +188,10 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
                 quit();
                 return true;
 
+            case R.id.action_about:
+                about();
+                return true;
+
             case R.id.action_new:
                 customView.blanksheet();
                 return true;
@@ -236,6 +240,10 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    public void about(){
+        Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+        startActivity(intent);
+    }
 
     //called when one of the color pick buttons are clicked.
     public void colorClick(View viewIn){

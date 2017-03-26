@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brightYellow">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/paint_logo2"
+        android:contentDescription="@string/logo"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:text="@string/features"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/features_tv"
+        android:textColor="@color/black"
+        android:textStyle="normal|bold"
+        android:textSize="34sp"
+        android:textAlignment="center"
+        android:fontFamily="casual"
+        android:paddingTop="10dp" />
+</LinearLayout>
