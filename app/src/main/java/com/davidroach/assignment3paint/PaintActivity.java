@@ -1,10 +1,47 @@
 package com.davidroach.assignment3paint;
 
+/*
+    Assignment3 Paint;
+    CSCI 4020
+    Thomas Crozier
+    David Roach
+    March 27th, 2017
+ */
+
+/*
+    Features:
+            Bucket fill - Fills draw canvas with selected color.
+                            DrawArea.changeBackgroundColor();
+                            DrawArea.appCanvas;
+                            DrawArea.currentColor;
+                            android.graphics.Paint;
+
+
+
+            Save to gallery - Saves drawing to gallery.
+                               PaintActivity.saveToGallery();
+                               PaintActivity.customView;
+
+
+
+            Load from gallery - Load phone image to draw canvas.
+                                PaintActivity.openGalleryImage();
+                                android.content.Intent;
+                                DrawArea.appCanvas;
+
+
+            Color picker - Choose current working color.
+                             DrawArea.currentColor;
+                             DrawArea.setCurrentColor;
+                             android.graphics.Paint;
+
+
+ */
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +54,7 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
+import android.graphics.PorterDuff;
 
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{

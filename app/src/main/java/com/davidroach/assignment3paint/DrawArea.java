@@ -1,5 +1,14 @@
 package com.davidroach.assignment3paint;
 
+/*
+    Assignment3 Paint;
+    CSCI 4020
+    Thomas Crozier
+    David Roach
+    March 27th, 2017
+ */
+
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
