@@ -45,7 +45,6 @@
             android:icon="@drawable/asterisk48dp"
             app:showAsAction="never"/>
 
-
         <item
             android:id="@+id/action_open"
             android:title="@string/open"
@@ -57,9 +56,15 @@
             android:icon="@drawable/save48dp"
             app:showAsAction="never"/>
         <item
-            android:id="@+id/action_quit"
-            android:title="@string/quit"
+            android:id="@+id/action_about"
+            android:title="@string/about"
+            android:icon="@drawable/about"
             app:showAsAction="never"/>
 
+        <item
+            android:id="@+id/action_quit"
+            android:title="@string/quit"
+            android:icon="@drawable/exit1"
+            app:showAsAction="never"/>
 
 </menu>

@@ -57,7 +57,6 @@ public class DrawArea extends View {
 
     public float dpiPixels;
 
-
     private Paint paintBrush;
     public Canvas appCanvas;
     protected Paint canvasPaint;
@@ -125,6 +124,10 @@ public class DrawArea extends View {
         squareFlag = false;
         triangleFlag = false;
 
+        //Brush Size instantiation and setStrokeWidth to Brushsize
+        brushSize = getResources().getInteger(R.integer.medium_size);
+        lastBrushSize = brushSize;
+
 
         eraseButtonPressed = false;
         eraseColor = Color.WHITE;
@@ -135,16 +138,12 @@ public class DrawArea extends View {
         //Set paint brush initial settings
         paintBrush = new Paint();
         paintBrush.setAntiAlias(true);
-        //paintBrush.setStrokeWidth(10);
+        paintBrush.setStrokeWidth(brushSize);
         paintBrush.setStrokeJoin(Paint.Join.ROUND);
         paintBrush.setStrokeCap(Paint.Cap.ROUND);
         paintBrush.setStyle(Paint.Style.STROKE);
         paintBrush.setColor(currentColor);
 
-        //Brush Size instantiation and setStrokeWidth to Brushsize
-        brushSize = getResources().getInteger(R.integer.medium_size);
-        lastBrushSize = brushSize;
-        paintBrush.setStrokeWidth(brushSize);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
         setBackgroundColor(Color.WHITE);
@@ -172,7 +171,7 @@ public class DrawArea extends View {
         float yCord = event.getY();
 
         //if any of the the shape flags are true do shape stuff
-        if(squareFlag == true ){
+        if(squareFlag){
             Log.i("SHAPE","In shape section of code.");
 
             switch (event.getAction()) {
@@ -199,14 +198,11 @@ public class DrawArea extends View {
                     return false;
             }
 
-
-
-
         }
         else {
 
             //if erase flag is true change area touched to canvas background color Color.WHITE
-            if (eraseButtonPressed == true) {
+            if (eraseButtonPressed) {
                 //Log.i("ERASE_BUTTON: ", "ACTIVE");
 
                 paintBrush.setColor(eraseColor);
@@ -267,7 +263,8 @@ public class DrawArea extends View {
 
     public void setBrushSize(float newSize){
         //New Size
-        float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+        float pixelAmount;
+        pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 newSize, getResources().getDisplayMetrics());
         brushSize=pixelAmount;
         paintBrush.setStrokeWidth(brushSize);

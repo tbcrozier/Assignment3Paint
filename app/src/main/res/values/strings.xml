@@ -19,4 +19,16 @@
     <string name="sml_string">Small</string>
     <string name="med_string">Medium</string>
     <string name="lrg_string">Large</string>
+    <string name="about">About</string>
+    <string name="logo">Logo</string>
+    <string name="features"><u>Features</u></string>
+    <string name="feat1">Save A Document</string>
+    <string name="feat2">Open A Document</string>
+    <string name="feat3">New Blank Sheet</string>
+    <string name="feat4">Draw Shapes</string>
+
+    <string name="featSave">Save </string>
+    <string name="featOpen">Open </string>
+    <string name="featNew">Blank Sheet</string>
+    <string name="featShape">Shape</string>
 </resources>
