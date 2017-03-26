@@ -22,4 +22,8 @@
     <string name="about">About</string>
     <string name="logo">Logo</string>
     <string name="features"><u>Features</u></string>
+    <string name="feat1">Save A Document</string>
+    <string name="feat2">Open A Document</string>
+    <string name="feat3">New Blank Sheet</string>
+    <string name="feat4">Draw Shapes</string>
 </resources>
