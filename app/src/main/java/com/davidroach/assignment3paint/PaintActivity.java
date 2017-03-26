@@ -8,42 +8,17 @@ package com.davidroach.assignment3paint;
     March 27th, 2017
  */
 
-/*
-    Features:
-            Bucket fill - Fills draw canvas with selected color.
-                            DrawArea.changeBackgroundColor();
-                            DrawArea.appCanvas;
-                            DrawArea.currentColor;
-                            android.graphics.Paint;
-
-
-
-            Save to gallery - Saves drawing to gallery.
-                               PaintActivity.saveToGallery();
-                               PaintActivity.customView;
-
-
-
-            Load from gallery - Load phone image to draw canvas.
-                                PaintActivity.openGalleryImage();
-                                android.content.Intent;
-                                DrawArea.appCanvas;
-
-
-            Color picker - Choose current working color.
-                             DrawArea.currentColor;
-                             DrawArea.setCurrentColor;
-                             android.graphics.Paint;
-
-
- */
 
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -145,6 +120,52 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     } //end oncreate
 
 
+    @Override
+    public void onBackPressed(){
+        SaveDialogFragment saveDialog = new SaveDialogFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        saveDialog.show(ft,"Save");
+
+
+
+
+    }
+
+    public static class SaveDialogFragment extends DialogFragment {
+        
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("You are exiting.  Are you sure you want to quit without saving first?")
+                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.i("Quit", "Without Saving");
+
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+
+
+                        }
+                    })
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.i("Not quitting", "You chose no.");
+
+                        }
+
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
+
+        }
+
+    }
+
+
     //Handles imaged returned from openGalleryImage
     //requestCode =1 for success
     @Override
@@ -166,6 +187,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+
 
 
     public void saveToGallery() {
@@ -298,6 +320,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
+
 
 
     public void quit(){

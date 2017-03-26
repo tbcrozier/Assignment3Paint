@@ -40,7 +40,7 @@ public class DrawArea extends View {
     //May move to main  class if the need arises.
 
 
-    private int currentColor;
+    protected int currentColor;
     private int eraseColor;
 
     //used to determine if a shape should be drawn or a free line.
@@ -67,7 +67,8 @@ public class DrawArea extends View {
     boolean eraseButtonPressed;
 
     //var to hold brush sizes
-    private float brushSize, lastBrushSize;
+    protected float brushSize;
+    private float   lastBrushSize;
 
     float squareTopCornerX;
     float squareTopCornerY;
