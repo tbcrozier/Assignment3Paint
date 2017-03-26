@@ -52,9 +52,9 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     *   Methods:    public void blanksheet()  /  invalidate();
     *
     * - Open File
-    *   Class:
-    *   Variables:
-    *   Methods:    openGalleryImage();
+    *   Class:      PaintActivity, Intent, Bitmap
+    *   Variables:  bitmap, customView.appCanvas;
+    *   Methods:    openGalleryImage(); onActivityResult
     *
     * - Save File
     *   Class:      PaintActivity.java
@@ -132,7 +132,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public static class SaveDialogFragment extends DialogFragment {
-        
+
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
