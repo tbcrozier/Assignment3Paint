@@ -48,7 +48,6 @@ public class DrawArea extends View {
 
     public float dpiPixels;
 
-
     private Paint paintBrush;
     public Canvas appCanvas;
     protected Paint canvasPaint;

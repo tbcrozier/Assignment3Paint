@@ -21,6 +21,35 @@ import java.lang.reflect.Method;
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
 
+    /* List of Features
+    * - Erase
+    *   Class:      DrawArea.java
+    *   Variables:  private int eraseColor; /  private int currentColor;  /   eraseColor = Color.WHITE;
+    *                boolean eraseButtonPressed;
+    *   Methods:    public void setEraseButtonPressed(boolean flagIn)
+    *
+    * - Fill
+    *   Class:      DrawArea.java
+    *   Variables:  private int currentColor;
+    *   Methods:    public void changeBackgroundColor()  /  public void setCurrentColor(int colorIn)
+    *
+    * - New Sheet
+    *   Class:      DrawArea.java
+    *   Variables:  0 , 0, PorterDuff.Mode.CLEAR
+    *   Methods:    public void blanksheet()  /  invalidate();
+    *
+    * - Open File
+    *   Class:
+    *   Variables:
+    *   Methods:    openGalleryImage();
+    *
+    * - Save File
+    *   Class:      PaintActivity.java
+    *   Variables:  Bitmap b
+    *   Methods:    saveToGallery()
+    *
+    * */
+
     Dialog color_dialog; //color picker dialog.
 
     private DrawArea customView;
