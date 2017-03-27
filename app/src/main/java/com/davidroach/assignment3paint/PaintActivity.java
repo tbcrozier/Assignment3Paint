@@ -1,12 +1,24 @@
 package com.davidroach.assignment3paint;
 
+/*
+    Assignment3 Paint;
+    CSCI 4020
+    Thomas Crozier
+    David Roach
+    March 27th, 2017
+ */
+
+
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +29,7 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.lang.reflect.Method;
+import android.graphics.PorterDuff;
 
 
 public class PaintActivity extends AppCompatActivity implements View.OnClickListener{
@@ -39,9 +52,9 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     *   Methods:    public void blanksheet()  /  invalidate();
     *
     * - Open File
-    *   Class:
-    *   Variables:
-    *   Methods:    openGalleryImage();
+    *   Class:      PaintActivity, Intent, Bitmap
+    *   Variables:  bitmap, customView.appCanvas;
+    *   Methods:    openGalleryImage(); onActivityResult
     *
     * - Save File
     *   Class:      PaintActivity.java
@@ -107,6 +120,52 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
     } //end oncreate
 
 
+    @Override
+    public void onBackPressed(){
+        SaveDialogFragment saveDialog = new SaveDialogFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        saveDialog.show(ft,"Save");
+
+
+
+
+    }
+
+    public static class SaveDialogFragment extends DialogFragment {
+
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("You are exiting.  Are you sure you want to quit without saving first?")
+                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.i("Quit", "Without Saving");
+
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+
+
+                        }
+                    })
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.i("Not quitting", "You chose no.");
+
+                        }
+
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
+
+        }
+
+    }
+
+
     //Handles imaged returned from openGalleryImage
     //requestCode =1 for success
     @Override
@@ -128,6 +187,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+
 
 
     public void saveToGallery() {
@@ -260,6 +320,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
         galleryIntent.setType("image/*");
         startActivityForResult(Intent.createChooser(galleryIntent, ""),1);
     }
+
 
 
     public void quit(){

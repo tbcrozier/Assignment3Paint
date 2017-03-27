@@ -1,5 +1,14 @@
 package com.davidroach.assignment3paint;
 
+/*
+    Assignment3 Paint;
+    CSCI 4020
+    Thomas Crozier
+    David Roach
+    March 27th, 2017
+ */
+
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -31,7 +40,7 @@ public class DrawArea extends View {
     //May move to main  class if the need arises.
 
 
-    private int currentColor;
+    protected int currentColor;
     private int eraseColor;
 
     //used to determine if a shape should be drawn or a free line.
@@ -58,7 +67,8 @@ public class DrawArea extends View {
     boolean eraseButtonPressed;
 
     //var to hold brush sizes
-    private float brushSize, lastBrushSize;
+    protected float brushSize;
+    private float   lastBrushSize;
 
     float squareTopCornerX;
     float squareTopCornerY;
