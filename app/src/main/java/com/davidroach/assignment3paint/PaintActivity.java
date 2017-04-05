@@ -214,42 +214,7 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
             case R.id.action_brush:
                 customView.resetShapeFlags();
                 customView.setEraseButtonPressed(false);
-                //customView.changeBrushSize(30);
-                final Dialog brushDialog = new Dialog(this);
-                brushDialog.setTitle("Brush size:");
-                brushDialog.setContentView(R.layout.brush_picker);
-
-                ImageButton smallBtn = (ImageButton)brushDialog.findViewById(R.id.small_brush);
-                smallBtn.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        customView.setBrushSize(smallBrush);
-                        customView.setLastBrushSize(smallBrush);
-                        brushDialog.dismiss();
-                    }
-                });
-
-                ImageButton mediumBtn = (ImageButton)brushDialog.findViewById(R.id.medium_brush);
-                mediumBtn.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        customView.setBrushSize(mediumBrush);
-                        customView.setLastBrushSize(mediumBrush);
-                        brushDialog.dismiss();
-                    }
-                });
-
-                ImageButton largeBtn = (ImageButton)brushDialog.findViewById(R.id.large_brush);
-                largeBtn.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        customView.setBrushSize(largeBrush);
-                        customView.setLastBrushSize(largeBrush);
-                        brushDialog.dismiss();
-                    }
-                });
-
-                brushDialog.show();
+                brushPicker();
                 return true;
 
             case R.id.action_bucket:
@@ -345,6 +310,43 @@ public class PaintActivity extends AppCompatActivity implements View.OnClickList
 
         Log.i("Color Tag:", Integer.toString(newColor));
         Log.i("ColorClick","Active");
+    }
+
+    public void brushPicker(){
+        final Dialog brushDialog = new Dialog(this);
+        brushDialog.setContentView(R.layout.brush_picker);
+
+        ImageButton smallBtn = (ImageButton)brushDialog.findViewById(R.id.small_brush);
+        smallBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                customView.setBrushSize(smallBrush);
+                customView.setLastBrushSize(smallBrush);
+                brushDialog.dismiss();
+            }
+        });
+
+        ImageButton mediumBtn = (ImageButton)brushDialog.findViewById(R.id.medium_brush);
+        mediumBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                customView.setBrushSize(mediumBrush);
+                customView.setLastBrushSize(mediumBrush);
+                brushDialog.dismiss();
+            }
+        });
+
+        ImageButton largeBtn = (ImageButton)brushDialog.findViewById(R.id.large_brush);
+        largeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                customView.setBrushSize(largeBrush);
+                customView.setLastBrushSize(largeBrush);
+                brushDialog.dismiss();
+            }
+        });
+
+        brushDialog.show();
     }
 
 //Draw_btn Onclick that will give brush size options

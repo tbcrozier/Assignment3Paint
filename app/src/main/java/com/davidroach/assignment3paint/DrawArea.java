@@ -285,7 +285,6 @@ public class DrawArea extends View {
         invalidate();
     }
 
-
     private void makeSquare(){
         Log.i("makeSquare()", "Running");
 
@@ -295,8 +294,6 @@ public class DrawArea extends View {
             squareBottomCornerY = 0;
             squareTopCornerX = 0;
             squareTopCornerY = 0;
-
-
 
     }
 
